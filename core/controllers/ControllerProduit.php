@@ -7,9 +7,11 @@ use Http;
 class ControllerProduit extends Controller
 {
     protected $modelName = \Models\Produit::class;
+    private $message;
 
     public function index()
     {
+        $title = "Produits";
         $produits = $this->model->find("created_at desc");
         \Renderer::render("produits/index", compact('title', 'produits'));
     }
@@ -38,7 +40,7 @@ class ControllerProduit extends Controller
                     $nom, $postnom, $prenom, $genre, $lieuNaiss, $dateNaiss, $territoire, $chefferie, $nationalite, $image
                 ]
             );
-            $message = $this->flash('L\'identification du eleve à réussi avec succé', 'success');
+            $this->message = $this->flash('L\'identification du eleve à réussi avec succé', 'success');
             \Http::redirect('index.php?controller=inscription&task=index');
         }
 
@@ -57,7 +59,7 @@ class ControllerProduit extends Controller
                     $nom, $postnom, $prenom, $genre, $lieuNaiss, $dateNaiss, $territoire, $chefferie, $nationalite, $id_eleve
                 ]
             );
-            $message = $this->flash('L\'identification du eleve à réussi avec succé', 'success');
+            $this->message = $this->flash('L\'identification du eleve à réussi avec succé', 'success');
             \Http::redirect('index.php?controller=eleve&task=index');
         }
         extract($_GET);
@@ -71,7 +73,7 @@ class ControllerProduit extends Controller
         extract($_GET);
         if (isset($_GET['task']) == "delete") {
             $suppression = $this->model->delete($id);
-            $message = $this->flash('La Suppresion du eleve à effectué avec succé', 'success');
+            $this->message = $this->flash('La Suppresion du eleve à effectué avec succé', 'success');
             Http::redirect('index.php?controller=eleve&task=index');
         }
     }

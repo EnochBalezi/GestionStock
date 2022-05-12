@@ -5,7 +5,6 @@
 </div>
 
 <?php
-$title = "Produits";
 if (isset($message)) {
     echo $message;
 }
@@ -17,6 +16,14 @@ if (isset($message)) {
             <button class="btn btn-add">
                 <a href="index.php?controller=eleve&task=create"> <i class="fa fa-plus-circle"></i> </a>
             </button>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <h5>Consulter produit</h5>
+            </div>
+            <div class="card-body">
+
+            </div>
         </div>
         <table class="table">
             <thead class="thead-dark">
