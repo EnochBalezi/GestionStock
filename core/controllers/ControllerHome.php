@@ -13,7 +13,7 @@ class ControllerHome extends Controller
      */
     public function index()
     {
-        $categorie = $this->model->findBy("created_at desc");
+        $categorie = $this->model->find("created_at desc");
         $title = "Home";
         \Renderer::render("home/index", compact('title'));
     }

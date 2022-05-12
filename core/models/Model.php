@@ -2,10 +2,14 @@
 
 namespace Models;
 
+use Exception;
+
 abstract class Model
 {
     public $pdo;
     protected $table;
+    private $message;
+    private $data = [];
 
     public function __construct()
     {
@@ -19,12 +23,16 @@ abstract class Model
      */
     public function findAll(): array
     {
-        $data = [];
-        $sql = $this->pdo->prepare("SELECT * FROM {$this->table}");
-        $sql->execute();
-        $resultat = $sql->fetchAll();
-        if ($resultat) {
-            $data[] = $resultat;
+        try {
+            $data = [];
+            $sql = $this->pdo->prepare("SELECT * FROM {$this->table}");
+            $sql->execute();
+            $resultat = $sql->fetchAll();
+            if ($resultat) {
+                $data[] = $resultat;
+            }
+        } catch (Exception $exception) {
+            $this->message = $exception;
         }
         return $data;
     }
@@ -54,20 +62,35 @@ abstract class Model
      */
     public function find(string $order = ''): array
     {
-        $req = "SELECT * FROM {$this->table}";
-        if ($order) {
-            $req .= " ORDER BY " . $order;
+
+        try {
+            $req = "SELECT * FROM {$this->table}";
+            if ($order) {
+                $req .= " ORDER BY " . $order;
+            }
+            $sql = $this->pdo->query($req);
+            $resultat = $sql->fetchAll();
+            if ($resultat >= 0) {
+                $this->data = $resultat;
+            }
+        } catch (Exception $exception) {
+            $this->message = $exception;
         }
-        $sql = $this->pdo->query($req);
-        $resultat = $sql->fetchAll();
-        return $resultat;
+        return $this->data;
     }
 
-    public function findOne(string $table): array
+    public function findByRequette(string $statement): array
     {
-        $req = $this->pdo->query("SELECT *from $table");
-        $resultat = $req->fetchAll();
-        return $resultat;
+        try {
+            $req = $this->pdo->query("SELECT *from $statement");
+            $resultat = $req->fetch();
+            if ($resultat >= 0) {
+                $this->data = $resultat;
+            }
+        } catch (Exception $exception) {
+            $this->message = $exception;
+        }
+        return $this->data;
     }
 
     /**
