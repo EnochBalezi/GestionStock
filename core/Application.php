@@ -5,7 +5,7 @@ class Application
 
     public static function process()
     {
-        $controllerName = "ControllerHome";
+        $controllerName = "Home";
         $task = "index";
 
         if (!empty($_GET['controller'])) {
@@ -15,7 +15,7 @@ class Application
             $task = $_GET['task'];
         }
 
-        $controllerName = "controllers\\Controller" . $controllerName;
+        $controllerName = "controllers\\controller" . $controllerName;
         $controller = new $controllerName();
 
         $controller->$task();

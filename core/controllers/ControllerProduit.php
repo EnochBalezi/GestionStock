@@ -4,20 +4,18 @@ namespace Controllers;
 
 use Http;
 
-class ControllerEleve extends Controller
+class ControllerProduit extends Controller
 {
-    protected $modelName = \Models\Eleve::class;
+    protected $modelName = \Models\Produit::class;
 
     public function index()
     {
-        $eleves = $this->model->findBy("created_at desc");
-        $title = "Elèves";
-        \Renderer::render("eleve/index", compact('title', 'eleves'));
+        $produits = $this->model->find("created_at desc");
+        \Renderer::render("produits/index", compact('title', 'produits'));
     }
 
     /**
      * Affiche un eleve 
-     *
      * @return void
      */
     public function show()

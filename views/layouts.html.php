@@ -14,13 +14,13 @@
 <body>
     <input type="checkbox" id="nav-toggler">
     <div class="side-bar">
-        <h1><i class="fa fa-pied-piper"></i> <span>ShineTech</span></h1>
+        <h1><i class="fa fa-pied-piper"></i> <span>Shine Tech</span></h1>
         <ul>
             <li><a href="Home" class="active">
                     <i class="fa fa-home"></i><span>Accueil</span> </a></li>
-            <li><a href="Classe&index">
-                    <i class="fa fa-university"></i><span>Classes</span> </a></li>
-            <li><a href="Eleve&index">
+            <li><a href="produit&index">
+                    <i class="fa fa-truck"></i><span>Prodiuts</span> </a></li>
+            <!-- <li><a href="Eleve&index">
                     <i class="fa fa-user-circle"></i><span>Elèves</span> </a></li>
             <li><a href="Inscription&index">
                     <i class="fa fa-edit"></i><span>Inscriptions</span></a></li>
@@ -31,8 +31,9 @@
             <li><a href="">
                     <i class="fa fa-sort-amount-desc"></i><span>Pertes</span> </a></li>
             <li><a href="">
-                    <i class="fa fa-book"></i><span>Rapports</span> </a></li>
+                    <i class="fa fa-book"></i><span>Rapports</span> </a></li> -->
             <div class="admin">
+                <hr>
                 <li><a href="">
                         <i class="fa fa-user-circle-o"></i><span>Comptes</span> </a></li>
                 <li><a href="">

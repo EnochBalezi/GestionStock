@@ -1,3 +1,9 @@
+<div class="card">
+    <div class="card-header">
+        <h2>Home</h2>
+    </div>
+</div>
+
 <div class="cards">
     <div class="cards-single">
         <div>
@@ -34,13 +40,6 @@
         <div>
             <span class="fa fa-truck"></span>
         </div>
-    </div>
-</div>
-
-<div class="card">
-    <div class="card-header">
-
-        <h2>Home</h2>
     </div>
 </div>
 

@@ -68,7 +68,7 @@ if (!$eleve == null) {
                         <p>Parcours de l'élève</p>
                     </div>
                 </div>
-                <a href="index.php?controller=eleve&task=edit&id=<?= $value['id'] ?>" class="btn btn-block"> <i class="fa fa-edit fa-lg"></i> Modifier</a>
+                <a href="index.php?controller=eleve&task=edit&id=<?= $value['Id'] ?>" class="btn btn-block"> <i class="fa fa-edit fa-lg"></i> Modifier</a>
             </div>
         </div>
     <?php

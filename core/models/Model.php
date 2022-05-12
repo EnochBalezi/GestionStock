@@ -13,16 +13,32 @@ abstract class Model
     }
 
     /**
+     * Recupere tous les élèments 
+     *
+     * @return array
+     */
+    public function findAll(): array
+    {
+        $data = [];
+        $sql = $this->pdo->prepare("SELECT * FROM {$this->table}");
+        $sql->execute();
+        $resultat = $sql->fetchAll();
+        if ($resultat) {
+            $data[] = $resultat;
+        }
+        return $data;
+    }
+    /**
      * recupere un element dans la base des donnees 
      *
      * @param int $id
      * @return void
      */
-    public function find(int $id): array
+    public function findById(int $id): array
     {
         $data = [];
-        $sql = $this->pdo->prepare("SELECT * FROM {$this->table} WHERE id=:id");
-        $sql->execute(['id' => $id]);
+        $sql = $this->pdo->prepare("SELECT * FROM {$this->table} WHERE id=:id_table");
+        $sql->execute(['id_table' => $id]);
         $resultat = $sql->fetch();
         if ($resultat) {
             $data[] = $resultat;
@@ -36,7 +52,7 @@ abstract class Model
      * @param string $order
      * @return array
      */
-    public function findBy($statement, string $order = ''): array
+    public function find(string $order = ''): array
     {
         $req = "SELECT * FROM {$this->table}";
         if ($order) {

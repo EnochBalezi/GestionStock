@@ -1,6 +1,6 @@
 <div class="card">
     <div class="card-body">
-        <h2 class="text"><a href="produit&index">Home </a>/ Elève</h2>
+        <h2 class="text"><a href="eleve&index">Home </a>/ Elève</h2>
     </div>
 </div>
 

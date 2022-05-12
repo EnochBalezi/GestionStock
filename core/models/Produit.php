@@ -2,7 +2,7 @@
 
 namespace Models;
 
-class Home extends Model
+class Produit extends Model
 {
     protected $table = "produits";
 }
