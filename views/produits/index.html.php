@@ -17,12 +17,17 @@ if (isset($message)) {
                 <a href="index.php?controller=eleve&task=create"> <i class="fa fa-plus-circle"></i> </a>
             </button>
         </div>
-        <div class="card">
-            <div class="card-header">
-                <h5>Consulter produit</h5>
-            </div>
-            <div class="card-body">
-
+        <div class="col-5">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Consulter produit</h5>
+                </div>
+                <div class="card-body">
+                    <form class="d-flex">
+                        <input class="form-control me-2" type="search" placeholder="Consulter un produit" aria-label="Search" style="width:270px">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                </div>
             </div>
         </div>
         <table class="table">
